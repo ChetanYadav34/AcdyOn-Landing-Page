@@ -25,12 +25,12 @@ function FindMyPath() {
           Based on your experience as a {selections.q1.toLowerCase() || 'professional'} focused on {selections.q2.toLowerCase() || 'leadership'}, an executive AI pathway is the strongest direction.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="px-8 py-4 bg-blue text-white rounded-lg hover:bg-blue/90 transition-colors font-medium">
+          <Link href="/pathways/executive-ai" className="px-8 py-4 bg-blue text-white rounded-lg hover:bg-blue/90 transition-colors font-medium">
             Explore This Path
-          </button>
-          <button className="px-8 py-4 border border-border-subtle hover:border-gold transition-colors text-text-primary rounded-lg font-medium">
+          </Link>
+          <Link href="/consultation/book" className="px-8 py-4 border border-border-subtle hover:border-gold transition-colors text-text-primary rounded-lg font-medium">
             Book Consultation &rarr;
-          </button>
+          </Link>
         </div>
       </div>
     );
