@@ -111,7 +111,7 @@ function EditorialText({
   return (
     <section className="h-[150vh] w-full flex items-end pb-[15vh] md:pb-0 md:items-center px-6 md:px-16 lg:px-24 pointer-events-none">
       <div className={`w-full max-w-7xl mx-auto flex justify-center ${alignClass}`}>
-        <div className="max-w-xl pointer-events-auto px-6 py-8 md:px-4 md:py-8 rounded-2xl text-center md:text-left bg-white/60 dark:bg-[#0A0D14]/60 md:bg-transparent md:dark:bg-transparent backdrop-blur-xl md:backdrop-blur-none border border-white/20 dark:border-white/5 md:border-transparent shadow-2xl md:shadow-none transition-all">
+        <div className="max-w-xl pointer-events-auto px-6 py-8 md:px-0 md:py-8 text-center md:text-left transition-all">
           <span className="text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-text-secondary drop-shadow-md block mb-3 md:mb-4">
             {eyebrow}
           </span>
