@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
-export default function ComingSoonPage({ params }: { params: { slug: string[] } }) {
-  const pathName = params.slug
+export default async function ComingSoonPage({ params }: { params: Promise<{ slug?: string[] }> }) {
+  const resolvedParams = await params;
+  const slug = resolvedParams?.slug || [];
+  
+  const pathName = slug
     .map(segment => segment.replace(/-/g, " "))
     .map(segment => segment.charAt(0).toUpperCase() + segment.slice(1))
     .join(" / ");
