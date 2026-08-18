@@ -157,7 +157,7 @@ export default function Home() {
               <div className="h-px w-12 bg-gold mt-4 mb-4 shadow-sm" />
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif text-text-primary mt-6 mb-6 leading-tight drop-shadow-2xl">
                 Your experience has taken you this far. <br />
-                <span className="italic text-text-secondary">What's next?</span>
+                <span className="italic text-text-secondary">What&apos;s next?</span>
               </h1>
               <p className="text-lg text-text-primary/90 font-medium max-w-md drop-shadow-md mb-8">
                 Scroll to explore the premium institution designed exclusively for your professional trajectory.

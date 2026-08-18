@@ -470,7 +470,6 @@ function FinalWallLogo({ isDark, p }: { isDark: boolean, p: any }) {
             url="/acdyon-logo.webp" 
             scale={[5, 5]} 
             transparent
-            blending={THREE.AdditiveBlending}
           />
         </Suspense>
       ) : (
@@ -602,12 +601,13 @@ function CameraRig() {
       targetFov = 45 + (1 - aspect) * 50; 
     }
     
+    const cam = state.camera as THREE.PerspectiveCamera;
     if (!isInitialized.current) {
-       state.camera.fov = targetFov;
+       cam.fov = targetFov;
     } else {
-       state.camera.fov = THREE.MathUtils.lerp(state.camera.fov, targetFov, delta * 4);
+       cam.fov = THREE.MathUtils.lerp(cam.fov, targetFov, delta * 4);
     }
-    state.camera.updateProjectionMatrix();
+    cam.updateProjectionMatrix();
   });
 
   return null;
