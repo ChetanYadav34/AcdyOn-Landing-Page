@@ -529,7 +529,8 @@ function PathwayCenter({ p, isDark }: { p: any, isDark: boolean }) {
 // ---- CAMERA RIG ----
 
 function CameraRig() {
-  const targetRef = useRef(new THREE.Vector3());
+  const targetRef = useRef(new THREE.Vector3(0, 6, 18));
+  const isInitialized = useRef(false);
 
   // 11-point sequence for 10 scrolling intervals
   // Important rule: pos.z MUST always be greater than look.z to prevent the camera from spinning around backwards!
@@ -544,8 +545,8 @@ function CameraRig() {
       new THREE.Vector3(-4, 5, -105),   // 6. Rec (Camera Left)
       new THREE.Vector3(-4, 7, -140),   // 7. Globe (Camera Left)
       new THREE.Vector3(0, 4, -185),    // 8. Funnel Front
-      new THREE.Vector3(0, 4, -185),    // 9. Funnel (Hold position)
-      new THREE.Vector3(0, 4, -190),    // 10. Consultation
+      new THREE.Vector3(0, 4, -185),    // 9. Funnel Preview
+      new THREE.Vector3(0, 4, -185),    // 10. Funnel Consultation
     ], false, 'catmullrom', 0.5);
   }, []);
 
@@ -580,9 +581,18 @@ function CameraRig() {
     const pos = posCurve.getPoint(t);
     const look = lookCurve.getPoint(t);
 
-    state.camera.position.lerp(pos, delta * 3.5);
-    targetRef.current.lerp(look, delta * 4.5);
-    state.camera.lookAt(targetRef.current);
+    if (!isInitialized.current) {
+      // Instantly snap to correct position and look target on the very first frame to prevent cut-scene swooping
+      state.camera.position.copy(pos);
+      targetRef.current.copy(look);
+      state.camera.lookAt(targetRef.current);
+      isInitialized.current = true;
+    } else {
+      // Smoothly lerp on subsequent frames
+      state.camera.position.lerp(pos, delta * 3.5);
+      targetRef.current.lerp(look, delta * 4.5);
+      state.camera.lookAt(targetRef.current);
+    }
 
     // Responsive FOV adaptation for smartphone screens
     const aspect = state.size.width / state.size.height;
@@ -591,7 +601,12 @@ function CameraRig() {
       // Linearly scale FOV up as the screen gets narrower
       targetFov = 45 + (1 - aspect) * 50; 
     }
-    state.camera.fov = THREE.MathUtils.lerp(state.camera.fov, targetFov, delta * 4);
+    
+    if (!isInitialized.current) {
+       state.camera.fov = targetFov;
+    } else {
+       state.camera.fov = THREE.MathUtils.lerp(state.camera.fov, targetFov, delta * 4);
+    }
     state.camera.updateProjectionMatrix();
   });
 
