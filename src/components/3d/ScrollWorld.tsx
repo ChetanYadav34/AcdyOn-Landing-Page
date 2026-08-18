@@ -609,30 +609,32 @@ export function ScrollWorld() {
 
   return (
     <Canvas shadows camera={{ position: [0, 5, 55], fov: 45 }} gl={{ antialias: true }}>
-      <color attach="background" args={[p.bg]} />
-      <fog attach="fog" args={[p.bg, 20, 80]} />
-      
-      <ambientLight intensity={isDark ? 0.05 : 0.5} color={isDark ? "#64748B" : "#ffffff"} />
-      <directionalLight 
-        position={[30, 50, 30]} 
-        intensity={isDark ? 0.2 : 1.8} 
-        color={isDark ? "#BAE6FD" : "#FFF5E1"} 
-        castShadow shadow-mapSize={[2048, 2048]}
-        shadow-camera-far={200} shadow-camera-left={-60} shadow-camera-right={60} shadow-camera-top={60} shadow-camera-bottom={-60}
-      />
-      <Environment preset={isDark ? "night" : "city"} />
-      <CameraRig />
+      <Suspense fallback={null}>
+        <color attach="background" args={[p.bg]} />
+        <fog attach="fog" args={[p.bg, 20, 80]} />
+        
+        <ambientLight intensity={isDark ? 0.05 : 0.5} color={isDark ? "#64748B" : "#ffffff"} />
+        <directionalLight 
+          position={[30, 50, 30]} 
+          intensity={isDark ? 0.2 : 1.8} 
+          color={isDark ? "#BAE6FD" : "#FFF5E1"} 
+          castShadow shadow-mapSize={[2048, 2048]}
+          shadow-camera-far={200} shadow-camera-left={-60} shadow-camera-right={60} shadow-camera-top={60} shadow-camera-bottom={-60}
+        />
+        <Environment preset={isDark ? "night" : "city"} />
+        <CameraRig />
 
-      <mesh position={[0, -0.1, -100]} rotation={[-Math.PI/2, 0, 0]} receiveShadow>
-        <planeGeometry args={[200, 300]} />
-        <meshStandardMaterial color={p.grass} roughness={1} />
-      </mesh>
+        <mesh position={[0, -0.1, -100]} rotation={[-Math.PI/2, 0, 0]} receiveShadow>
+          <planeGeometry args={[200, 300]} />
+          <meshStandardMaterial color={p.grass} roughness={1} />
+        </mesh>
 
-      <CampusGate p={p} isDark={isDark} />
-      <LegacyCentralPlaza p={p} isDark={isDark} />
-      <LandmarkPromenade p={p} isDark={isDark} />
-      <GlobalAtrium p={p} isDark={isDark} />
-      <PathwayCenter p={p} isDark={isDark} />
+        <CampusGate p={p} isDark={isDark} />
+        <LegacyCentralPlaza p={p} isDark={isDark} />
+        <LandmarkPromenade p={p} isDark={isDark} />
+        <GlobalAtrium p={p} isDark={isDark} />
+        <PathwayCenter p={p} isDark={isDark} />
+      </Suspense>
     </Canvas>
   );
 }

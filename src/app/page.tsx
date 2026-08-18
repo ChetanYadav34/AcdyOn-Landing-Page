@@ -2,6 +2,7 @@
 
 import { Navbar } from "@/components/layout/Navbar";
 import { ScrollWorld } from "@/components/3d/ScrollWorld";
+import { Loader } from "@/components/Loader";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -135,6 +136,7 @@ function EditorialText({
 export default function Home() {
   return (
     <main className="relative w-full bg-bg-primary text-text-primary">
+      <Loader />
       <Navbar />
       
       {/* 3D Canvas Background */}
