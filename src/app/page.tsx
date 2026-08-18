@@ -3,6 +3,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { ScrollWorld } from "@/components/3d/ScrollWorld";
 import { useState } from "react";
+import Link from "next/link";
 
 // ---- FIND MY PATH FUNNEL COMPONENT ----
 function FindMyPath() {
@@ -101,9 +102,9 @@ function FindMyPath() {
 
 // ---- EDITORIAL SCENE COMPONENT ----
 function EditorialText({ 
-  align, eyebrow, title, body, cta 
+  align, eyebrow, title, body, cta, ctaLink 
 }: { 
-  align: 'left' | 'right', eyebrow: string, title: string, body: string, cta?: string 
+  align: 'left' | 'right', eyebrow: string, title: string, body: string, cta?: string, ctaLink?: string 
 }) {
   const alignClass = align === 'left' ? 'md:justify-start' : 'md:justify-end';
 
@@ -120,10 +121,10 @@ function EditorialText({
           <p className="text-base md:text-xl text-text-primary/90 font-medium max-w-md mx-auto md:mx-0 drop-shadow-md mb-6 md:mb-8">
             {body}
           </p>
-          {cta && (
-            <button className="inline-flex items-center justify-center gap-2 text-sm md:text-base text-gold font-bold tracking-widest uppercase hover:opacity-80 transition-opacity">
+          {cta && ctaLink && (
+            <Link href={ctaLink} className="inline-flex items-center justify-center gap-2 text-sm md:text-base text-gold font-bold tracking-widest uppercase hover:opacity-80 transition-opacity">
               {cta} &rarr;
-            </button>
+            </Link>
           )}
         </div>
       </div>
@@ -181,6 +182,7 @@ export default function Home() {
           title="Lead with clarity."
           body="Build strategic capability for what comes next. Master global institutional leadership."
           cta="Explore Executive Pathway"
+          ctaLink="/programs"
         />
 
         {/* INTERVAL 4: AI (Subject Right, Text Left) */}
@@ -190,6 +192,7 @@ export default function Home() {
           title="Integrate intelligence."
           body="Command advanced machine intelligence and guide your enterprise architecture into the future."
           cta="Explore AI Institute"
+          ctaLink="/programs/ai-for-business-leaders"
         />
 
         {/* INTERVAL 5: DOCTORAL (Subject Left, Text Right) */}
@@ -199,6 +202,7 @@ export default function Home() {
           title="Push the boundaries."
           body="Formalize your life's work. Deep research in computational policy, ethics, and global dynamics."
           cta="Explore Doctoral Journey"
+          ctaLink="/doctoral"
         />
 
         {/* INTERVAL 6: RECOGNITION (Subject Right, Text Left) */}
@@ -208,6 +212,7 @@ export default function Home() {
           title="Validate your legacy."
           body="Achieve formal distinction at the highest academic tier for your professional accomplishments."
           cta="Explore Recognition Hall"
+          ctaLink="/universities/academic-recognition"
         />
 
         {/* INTERVAL 7: GLOBAL ATRIUM (Subject Right, Text Left) */}
@@ -217,6 +222,7 @@ export default function Home() {
           title="Connect the world."
           body="Explore pathways connected to an international academic ecosystem spanning borders."
           cta="Explore Universities"
+          ctaLink="/universities/global-network"
         />
 
         {/* INTERVAL 8 & 9: PATHWAY CENTER FUNNEL (300vh total, stays on screen) */}

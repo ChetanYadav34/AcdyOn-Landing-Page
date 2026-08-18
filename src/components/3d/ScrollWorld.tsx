@@ -318,7 +318,7 @@ function LandmarkPromenade({ p, isDark }: { p: any, isDark: boolean }) {
       {/* 1. Executive (Left) */}
       <group position={[-12, 0, -30]}>
         <Plinth />
-        <ClickableLandmark onClick={() => window.alert("Navigate to: Executive Programs")}>
+        <ClickableLandmark onClick={() => window.location.href = "/programs"}>
           <group ref={execRef} position={[0, 4.5, 0]}>
             <mesh position={[0, 4.5, 0]} castShadow>
               <cylinderGeometry args={[0, 2, 7, 4]} />
@@ -339,7 +339,7 @@ function LandmarkPromenade({ p, isDark }: { p: any, isDark: boolean }) {
       {/* 2. AI (Right) */}
       <group position={[8, 0, -60]}>
         <Plinth />
-        <ClickableLandmark onClick={() => window.alert("Navigate to: AI Institute")}>
+        <ClickableLandmark onClick={() => window.location.href = "/programs/ai-for-business-leaders"}>
           <group position={[0, 6, 0]}>
             <group ref={aiRef}>
               <mesh castShadow>
@@ -362,7 +362,7 @@ function LandmarkPromenade({ p, isDark }: { p: any, isDark: boolean }) {
       {/* 3. Doctoral (Left) */}
       <group position={[-12, 0, -90]}>
         <Plinth />
-        <ClickableLandmark onClick={() => window.alert("Navigate to: Doctoral Research")}>
+        <ClickableLandmark onClick={() => window.location.href = "/doctoral"}>
           <group ref={docRef} position={[0, 5, 0]}>
             <mesh position={[0, 1.5, 0]} castShadow>
               <cylinderGeometry args={[1.2, 1.5, 4, 16]} />
@@ -387,7 +387,7 @@ function LandmarkPromenade({ p, isDark }: { p: any, isDark: boolean }) {
       {/* 4. Recognition (Right) */}
       <group position={[12, 0, -120]}>
         <Plinth />
-        <ClickableLandmark onClick={() => window.alert("Navigate to: Recognition Hall")}>
+        <ClickableLandmark onClick={() => window.location.href = "/universities/academic-recognition"}>
           <group ref={recRef} position={[0, 6, 0]}>
             <mesh castShadow rotation={[0, -Math.PI/4, 0]}>
               <torusGeometry args={[2.2, 0.25, 32, 64]} />

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, Briefcase, GraduationCap, Globe, Lightbulb } from "lucide-react";
 
@@ -176,9 +177,9 @@ export function FindMyPath() {
             </div>
           </div>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <button className="w-full sm:w-auto px-8 py-4 bg-blue text-white rounded-full font-semibold hover:bg-blue/90 transition-colors">
+            <Link href="/programs/executive-master" className="w-full sm:w-auto px-8 py-4 bg-blue text-white rounded-full font-semibold hover:bg-blue/90 transition-colors inline-block text-center">
               View Program Details
-            </button>
+            </Link>
             <button onClick={reset} className="w-full sm:w-auto px-8 py-4 text-text-secondary hover:text-text-primary font-semibold transition-colors">
               Start Over
             </button>

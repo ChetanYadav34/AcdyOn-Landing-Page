@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     // suppressHydrationWarning is needed for next-themes to prevent hydration mismatch
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased min-h-screen flex flex-col selection:bg-blue selection:text-white`}>
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased min-h-screen flex flex-col selection:bg-blue selection:text-white`} suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           {children}
         </ThemeProvider>

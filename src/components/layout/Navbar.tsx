@@ -10,62 +10,62 @@ const NAV_LINKS = [
   { name: "Home", href: "/" },
   { 
     name: "Programs", 
-    href: "#programs",
+    href: "/programs",
     dropdown: {
       title: "Programs",
       description: "Executive education, AI mastery, and professional development programmes.",
       items: [
-        { title: "Agentic AI & Automation Mastery", desc: "Build AI agents, automate workflows, and deploy real projects.", href: "#" },
-        { title: "Cybersecurity & AI Mastery", desc: "Industry-focused cybersecurity training with career acceleration.", href: "#" },
-        { title: "AI for Business Leaders", desc: "Strategic AI decision-making for executives and founders.", href: "#" },
-        { title: "Corporate Training", desc: "Custom AI and leadership learning for organisations.", href: "#" },
+        { title: "Agentic AI & Automation Mastery", desc: "Build AI agents, automate workflows, and deploy real projects.", href: "/programs/agentic-ai-automation-mastery" },
+        { title: "Cybersecurity & AI Mastery", desc: "Industry-focused cybersecurity training with career acceleration.", href: "/programs/cybersecurity-ai-mastery" },
+        { title: "AI for Business Leaders", desc: "Strategic AI decision-making for executives and founders.", href: "/programs/ai-for-business-leaders" },
+        { title: "Corporate Training", desc: "Custom AI and leadership learning for organisations.", href: "/programs/corporate-training" },
       ]
     }
   },
   { 
     name: "Doctoral", 
-    href: "#doctoral",
+    href: "/doctoral",
     dropdown: {
       title: "Doctoral",
       description: "Doctoral pathways and honorary recognition from globally accredited institutions.",
       items: [
-        { title: "Kennedy University DBA", desc: "US-based prestigious DBA programme.", href: "#" },
-        { title: "Dunster Business School DBA", desc: "Swiss QS 4-Star DBA with international reach.", href: "#" },
-        { title: "LSMT DBA", desc: "London-based research-driven DBA programme.", href: "#" },
-        { title: "EIMT DBA", desc: "Swiss innovation-focused DBA for executives.", href: "#" },
-        { title: "Birchwood DBA", desc: "Accelerated 2-year US executive DBA.", href: "#" },
+        { title: "Kennedy University DBA", desc: "US-based prestigious DBA programme.", href: "/doctoral/kennedy-university" },
+        { title: "Dunster Business School DBA", desc: "Swiss QS 4-Star DBA with international reach.", href: "/doctoral/dunster-business-school" },
+        { title: "LSMT DBA", desc: "London-based research-driven DBA programme.", href: "/doctoral/lsmt" },
+        { title: "EIMT DBA", desc: "Swiss innovation-focused DBA for executives.", href: "/doctoral/eimt" },
+        { title: "Birchwood DBA", desc: "Accelerated 2-year US executive DBA.", href: "/doctoral/birchwood" },
       ]
     }
   },
   { 
     name: "Universities", 
-    href: "#universities",
+    href: "/universities",
     dropdown: {
       title: "Universities",
       description: "International pathways, verification, and academic clarity.",
       items: [
-        { title: "Partner Universities", desc: "Explore the global academic network.", href: "#" },
-        { title: "Academic Recognition", desc: "Understanding international positioning and fit.", href: "#" },
-        { title: "Global Network", desc: "Geographic reach and regional pathways.", href: "#" },
+        { title: "Partner Universities", desc: "Explore the global academic network.", href: "/universities/partner" },
+        { title: "Academic Recognition", desc: "Understanding international positioning and fit.", href: "/universities/academic-recognition" },
+        { title: "Global Network", desc: "Geographic reach and regional pathways.", href: "/universities/global-network" },
       ]
     }
   },
   { 
     name: "Resources", 
-    href: "#resources",
+    href: "/resources",
     dropdown: {
       title: "Resources",
       description: "Insights, guides, and tools for navigating your learning journey.",
       items: [
-        { title: "Blogs", desc: "Insights on AI, education, and academic advancement.", href: "#" },
-        { title: "Brochures", desc: "Detailed program brochures and guides.", href: "#" },
-        { title: "Events", desc: "Webinars, open days, and information sessions.", href: "#" },
-        { title: "Scholarship Calculator", desc: "Estimate your indicative scholarship and net fee.", href: "#" },
+        { title: "Blogs", desc: "Insights on AI, education, and academic advancement.", href: "/resources/blogs" },
+        { title: "Brochures", desc: "Detailed program brochures and guides.", href: "/resources/brochures" },
+        { title: "Events", desc: "Webinars, open days, and information sessions.", href: "/resources/events" },
+        { title: "Scholarship Calculator", desc: "Estimate your indicative scholarship and net fee.", href: "/scholarship-calculator" },
       ]
     }
   },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {
@@ -162,7 +162,7 @@ export function Navbar() {
           )}
 
           <Link
-            href="#consultation"
+            href="/book-consultation"
             className="hidden md:inline-flex items-center justify-center h-10 px-6 rounded-full bg-blue text-white text-sm font-semibold hover:bg-blue/90 transition-transform hover:-translate-y-0.5"
           >
             Book Consultation
