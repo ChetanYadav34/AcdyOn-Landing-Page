@@ -40,7 +40,7 @@ export function Loader() {
           <h2 className="text-sm font-bold tracking-[0.3em] uppercase text-text-primary mb-2">
             AcdyOn
           </h2>
-          <p className="text-xs font-medium tracking-widest text-text-tertiary">
+          <p className="text-xs font-medium tracking-widest text-text-tertiary tabular-nums">
             INITIALIZING {displayProgress}%
           </p>
         </div>
@@ -48,8 +48,8 @@ export function Loader() {
         {/* Progress Bar */}
         <div className="w-48 h-[2px] bg-border-subtle rounded-full overflow-hidden mt-4">
           <div 
-            className="h-full bg-gold transition-all duration-300 ease-out" 
-            style={{ width: `${displayProgress}%` }} 
+            className="h-full bg-gold transition-transform duration-300 ease-out origin-left" 
+            style={{ transform: `scaleX(${displayProgress / 100})` }} 
           />
         </div>
       </div>

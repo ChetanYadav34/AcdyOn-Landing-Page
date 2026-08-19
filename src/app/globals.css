@@ -2,7 +2,7 @@
 
 @theme {
   --color-blue: #1E40FF;
-  --color-gold: #D4AF37;
+  --color-gold: var(--theme-gold);
   
   --color-bg-primary: var(--bg-primary);
   --color-bg-secondary: var(--bg-secondary);
@@ -21,6 +21,7 @@
   --text-primary: #1C1F26; /* Charcoal */
   --text-secondary: #4A5568;
   --border-subtle: #E2E8F0;
+  --theme-gold: #8A6300; /* Darker gold for light mode to pass contrast */
 }
 
 .dark {
@@ -30,6 +31,7 @@
   --text-primary: #FDFBF7;
   --text-secondary: #A0AEC0;
   --border-subtle: #2D3748;
+  --theme-gold: #D4AF37; /* Original metallic gold for dark mode */
 }
 
 html, body {

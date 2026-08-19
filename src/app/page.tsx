@@ -135,6 +135,14 @@ function EditorialText({
 }
 
 export default function Home() {
+  const [mount3D, setMount3D] = useState(false);
+
+  // Defer the heavy 3D canvas initialization to unblock the main thread for FCP/LCP
+  useEffect(() => {
+    const timer = setTimeout(() => setMount3D(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <main className="relative w-full bg-bg-primary text-text-primary">
       <Loader />
@@ -142,7 +150,7 @@ export default function Home() {
       
       {/* 3D Canvas Background */}
       <div className="fixed inset-0 w-full h-screen z-0 pointer-events-auto">
-        <ScrollWorld />
+        {mount3D && <ScrollWorld />}
       </div>
 
       {/* Foreground DOM Content */}
