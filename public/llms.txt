@@ -1,0 +1,13 @@
+# AcdyOn - Global Executive Learning Ecosystem
+
+AcdyOn provides premium executive education, AI mastery, doctoral pathways, and honorary recognition for ambitious professionals and global leaders.
+
+## Key Links
+- [Home](https://acdyonlandingpage.vercel.app/)
+- [Programs](https://acdyonlandingpage.vercel.app/programs)
+- [Doctoral Pathways](https://acdyonlandingpage.vercel.app/doctoral)
+- [Universities & Recognition](https://acdyonlandingpage.vercel.app/universities)
+- [Contact & Consultation](https://acdyonlandingpage.vercel.app/book-consultation)
+
+## Technical Architecture
+This site is built with Next.js 15, React 19, Tailwind CSS, and React Three Fiber for the 3D scroll experiences.

@@ -1,7 +1,8 @@
 "use client";
 
 import { Navbar } from "@/components/layout/Navbar";
-import { ScrollWorld } from "@/components/3d/ScrollWorld";
+import dynamic from "next/dynamic";
+const ScrollWorld = dynamic(() => import("@/components/3d/ScrollWorld").then(mod => mod.ScrollWorld), { ssr: false });
 import { Loader } from "@/components/Loader";
 import { useState } from "react";
 import Link from "next/link";
@@ -241,9 +242,9 @@ export default function Home() {
             <p className="text-xl text-text-secondary mb-10">
               Speak with an AcdyOn advisor about the pathway that fits your professional goals and timeline.
             </p>
-            <button className="px-10 py-5 bg-gold text-white rounded-lg hover:bg-gold/90 transition-colors text-lg font-medium shadow-lg">
+            <Link href="/consultation/book" className="px-10 py-5 bg-gold text-[#0A0D14] rounded-lg hover:bg-gold/90 transition-colors text-lg font-bold shadow-lg">
               Book Consultation &rarr;
-            </button>
+            </Link>
           </div>
         </section>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { Sun, Moon, Menu, ChevronDown, Sparkles } from "lucide-react";
@@ -99,9 +100,11 @@ export function Navbar() {
           }}
           className="flex items-center gap-3 group"
         >
-          <img 
+          <Image 
             src="/acdyon-logo.webp" 
             alt="AcdyOn Logo" 
+            width={36}
+            height={36}
             className="h-9 w-9 object-contain drop-shadow-md invert mix-blend-multiply dark:invert-0 dark:mix-blend-normal transition-all" 
           />
           <span className="text-xl font-serif font-semibold tracking-tight text-text-primary group-hover:text-blue transition-colors">
@@ -167,7 +170,7 @@ export function Navbar() {
           >
             Book Consultation
           </Link>
-          <button className="lg:hidden p-2 text-text-primary">
+          <button aria-label="Toggle navigation menu" className="lg:hidden p-2 text-text-primary">
             <Menu size={24} />
           </button>
         </div>
