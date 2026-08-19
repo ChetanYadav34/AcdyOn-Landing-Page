@@ -4,7 +4,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import dynamic from "next/dynamic";
 const ScrollWorld = dynamic(() => import("@/components/3d/ScrollWorld").then(mod => mod.ScrollWorld), { ssr: false });
 import { Loader } from "@/components/Loader";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 // ---- FIND MY PATH FUNNEL COMPONENT ----
