@@ -37,8 +37,7 @@ function Uplight({ position, color, intensity = 2.5, distance = 15, isDark }: { 
         <circleGeometry args={[0.4, 32]} />
         <meshBasicMaterial color={color} />
       </mesh>
-      {/* Light emitted */}
-      <pointLight position={[0, 0.5, 0]} intensity={intensity} distance={distance} color={color} />
+      {/* Light emitted pointLight removed for performance. 30+ pointlights crash WebGL FPS */}
     </group>
   );
 }
@@ -86,9 +85,6 @@ function Tree({ position, scale = 1, type = "canopy", isDark, p }: { position: [
         {type === "slender" ? <coneGeometry args={[1.5, 7, 16]} /> : type === "shrub" ? <sphereGeometry args={[1.2, 16, 16]} /> : <icosahedronGeometry args={[2.5, 2]} />}
         <meshStandardMaterial color={p.grass} roughness={0.9} />
       </mesh>
-      {isDark && (type === "slender" || type === "shrub") && (
-        <pointLight position={[0, 0.5, 0]} distance={4} intensity={0.5} color={p.lightWarm} />
-      )}
     </group>
   );
 }
@@ -628,10 +624,10 @@ export function ScrollWorld() {
         <color attach="background" args={[p.bg]} />
         <fog attach="fog" args={[p.bg, 20, 80]} />
         
-        <ambientLight intensity={isDark ? 0.05 : 0.5} color={isDark ? "#64748B" : "#ffffff"} />
+        <ambientLight intensity={isDark ? 0.35 : 0.5} color={isDark ? "#8CA1BC" : "#ffffff"} />
         <directionalLight 
           position={[30, 50, 30]} 
-          intensity={isDark ? 0.2 : 1.8} 
+          intensity={isDark ? 0.5 : 1.8} 
           color={isDark ? "#BAE6FD" : "#FFF5E1"} 
           castShadow shadow-mapSize={[2048, 2048]}
           shadow-camera-far={200} shadow-camera-left={-60} shadow-camera-right={60} shadow-camera-top={60} shadow-camera-bottom={-60}
